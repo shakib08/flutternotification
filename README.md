@@ -1,16 +1,20 @@
-# notification
+# Project
 
-A new Flutter project.
+A new Flutter project of sending and receiving notifications between two users.
 
-## Getting Started
+## Project Description
 
-This project is a starting point for a Flutter application.
+It's a basic flutter task managing the notification between two users. Flutter needs permission from android manifest for managing the notification. Besides device token must be needed to send the notification in flutter. In this project I have implemented both. The permissions I had to gave in android manifest are 
 
-A few resources to get you started if this is your first Flutter project:
+<ul>
+  <li>Fcm token permission over internet</li>
+  <li>Fcm token permission over WAKE_LOCK</li>
+  <li>Fcm token permission over RECEIVE_BOOT_COMPLETED</li>
+  <li>Fcm token permission over FOREGROUND_SERVICE</li>
+</ul>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Database
+I have used firebase firestore database for the realtime database and for authentication I have used firebase auth. 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Working methodology
+In the initial sign up, I have taken the device token from the user and store it to the firestore collection. And then when user try to login, then also I am taking the fcm token from the user and match with the token which is stored to the firestore collection. If both the token match, then it will remain same, but if the tokens don't match, the current token will be updated and stored to the firestore database and managing the notification receive and get. 
